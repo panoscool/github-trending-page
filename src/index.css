@@ -1,13 +1,257 @@
-body {
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --cl-primary-light: #c9d1d9;
+  --cl-secondary-light: #88949e;
+  --cl-primary-dark: #0d1117;
+  --cl-secondary-dark: #161b22;
+  --cl-grey: #30363d;
+  --cl-blue-light: #58a6ff;
+  --cl-blue-dark: #1266e9;
+  --cl-orange: #db6d28;
+  --cl-link-active: #1f6feb;
+}
+
+body {
+  color: var(--cl-primary-light);
+  background-color: var(--cl-primary-dark);
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* font-size: calc(10px + 2vmin); */
+}
+
+a {
+  color: var(--cl-primary-light);
+  text-decoration: none;
+}
+
+.error {
+  color: var(--cl-orange);
+  text-align: center;
+  margin: 32px;
+  font-size: 1.5rem;
+}
+
+.container {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.navbar {
+  padding: 16px;
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--cl-secondary-dark);
+}
+
+.button-link {
+  padding: 4px 16px;
+  background-color: var(--cl-primary-dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.button-link:nth-of-type(1) {
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.button-link:nth-of-type(2) {
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.button-link.active {
+  color: #fff;
+  background-color: var(--cl-link-active);
+}
+
+.dropdown-menus {
+  color: var(--cl-secondary-light);
+  display: flex;
+  gap: 1rem;
+}
+
+.select-menu {
+  list-style: none;
+}
+
+.select-menu::after {
+  content: '';
+  height: 0;
+  width: 0;
+  margin-left: 4px;
+  vertical-align: -2px;
+  display: inline-block;
+  border: 4px solid transparent;
+  border-top-color: currentcolor;
+}
+
+.select-menu:hover {
+  cursor: pointer;
+  color: var(--cl-primary-light);
+}
+
+.icon {
+  font-size: 16px;
+  margin-right: 8px;
+  color: var(--cl-secondary-light);
+}
+
+.fire {
+  color: var(--cl-orange);
+  margin-right: 8px;
+}
+
+.header {
+  padding: 20px 40px 40px 40px;
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--cl-secondary-light);
+}
+
+.line {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  background-color: var(--cl-grey);
+}
+
+.link-button {
+  color: var(--cl-secondary-light);
+}
+
+.button-label {
+  padding-left: 8px;
+}
+
+/* repositories styles */
+
+.repo-list-item {
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.list-item_header {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+.list-item_title {
+  font-size: 20px;
+}
+
+.list-item_subtitle {
+  color: var(--cl-secondary-light);
+}
+
+.list-item_info {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  padding-top: 8px;
+  font-size: 12px;
+  color: var(--cl-secondary-light);
+}
+
+.left {
+  display: flex;
+  gap: 16px;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+}
+
+.build-by-block {
+  display: flex;
+  gap: 8px;
+  justify-items: center;
+}
+
+.build-by {
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+.title-light {
+  color: var(--cl-blue-light);
+}
+
+.title-dark {
+  color: var(--cl-blue-dark);
+}
+
+.description {
+  max-width: 700px;
+}
+
+/* developers styles */
+
+.dev-list-item_col1 {
+  display: flex;
+}
+
+.dev-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.dev-photo {
+  margin: 0 16px;
+}
+
+.dev-list-item {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.small-text {
+  font-size: 12px;
+}
+
+.repo-link {
+  color: var(--cl-blue-light);
+}
+
+.align-text {
+  text-align: right;
+}
+
+.dev-name {
+  color: var(--cl-blue-light);
+}
+
+.dev-username {
+  color: var(--cl-secondary-light);
+  font-size: 18px;
 }
