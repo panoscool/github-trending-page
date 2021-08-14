@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 import Loading from '../loading';
 import RepoListItem from './repo-list-item';
 
-interface BuildBy {
+interface BuiltBy {
   avatar: string;
   url: string;
   username: string;
@@ -20,10 +20,8 @@ interface Repository {
   totalStars: number;
   url: string;
   username: string;
-  buildBy: BuildBy[];
+  builtBy: BuiltBy[];
 }
-
-// type Repositories = Repository[];
 
 const fetchRepositories = async () => {
   const res = await fetch('/repositories');

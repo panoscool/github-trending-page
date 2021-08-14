@@ -12,8 +12,6 @@ interface Developer {
   popularRepository: { repositoryName: string; description: string; url: string };
 }
 
-// type Developers = Developer[];
-
 const fetchRepositories = async () => {
   const res = await fetch('/developers');
   return res.json();

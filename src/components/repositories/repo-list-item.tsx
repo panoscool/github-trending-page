@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
-
-interface BuildBy {
+interface BuiltBy {
   avatar: string;
   url: string;
   username: string;
@@ -18,7 +16,7 @@ interface Repository {
   totalStars: number;
   url: string;
   username: string;
-  buildBy: BuildBy[];
+  builtBy: BuiltBy[];
 }
 
 function RepoListItem({
@@ -30,21 +28,21 @@ function RepoListItem({
   totalStars,
   url,
   username,
-  buildBy,
+  builtBy,
 }: Repository) {
   return (
     <div className="repo-list-item">
       <div className="list-item_header">
-        <Link to={url} className="list-item_title">
+        <a href={url} rel="noreferrer noopener" className="list-item_title">
           <i className="far fa-clipboard fa-rotate-180 icon"></i>
           <span className="title-dark">{username} /</span>{' '}
           <span className="title-light">{repositoryName}</span>
-        </Link>
+        </a>
         <div className="list-item_button">
-          <Link to={url} className="button">
+          <a href={url} rel="noreferrer noopener" className="button">
             <i className="far fa-star"></i>
             <span className="button-label">Star</span>
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -55,18 +53,18 @@ function RepoListItem({
       <div className="list-item_info">
         <div className="left">
           <span>{language}</span>
-          <Link to="/" className="link-button">
+          <a href="/" rel="noreferrer noopener" className="link-button">
             <i className="far fa-star"></i>
             <span className="button-label">{totalStars}</span>
-          </Link>
-          <Link to={url} className="link-button">
+          </a>
+          <a href={url} rel="noreferrer noopener" className="link-button">
             <i className="fas fa-code-branch"></i>
             <span className="button-label">{forks}</span>
-          </Link>
+          </a>
           <span className="build-by-block">
-            Build by{' '}
-            {buildBy?.map(({ avatar, username }: BuildBy) => (
-              <img src={avatar} alt={username} className="build-by" />
+            Built by{' '}
+            {builtBy?.map(({ avatar, username }: BuiltBy) => (
+              <img key={avatar} src={avatar} alt={username} className="build-by" />
             ))}
           </span>
         </div>

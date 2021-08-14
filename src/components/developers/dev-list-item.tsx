@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 interface Developer {
   avatar: string;
   name: string;
@@ -15,20 +13,20 @@ function DevListItem({ avatar, name, rank, url, username, popularRepository }: D
       <div className="dev-list-item_col1">
         <div className="dev-ranking">{rank}</div>
         <div className="dev-photo">
-          <Link to={url} className="list-item_title">
+          <a href={url} rel="noreferrer noopener" className="list-item_title">
             <img src={avatar} alt="avatar" className="avatar" />
-          </Link>
+          </a>
         </div>
         <div>
           <h1>
-            <Link to={url} className="list-item_title">
+            <a href={url} rel="noreferrer noopener" className="list-item_title">
               <span className="dev-name">{name}</span>
-            </Link>
+            </a>
           </h1>
           <p>
-            <Link to={url} className="list-item_title">
+            <a href={url} rel="noreferrer noopener" className="list-item_title">
               <span className="dev-username">{username}</span>
-            </Link>
+            </a>
           </p>
         </div>
       </div>
@@ -40,18 +38,18 @@ function DevListItem({ avatar, name, rank, url, username, popularRepository }: D
         </div>
         <div>
           <i className="far fa-clipboard fa-rotate-180 icon"></i>
-          <Link to={popularRepository.url} className="repo-link">
+          <a href={popularRepository.url} rel="noreferrer noopener" className="repo-link">
             {popularRepository.repositoryName}
-          </Link>
+          </a>
         </div>
         <div className="small-text">{popularRepository.description}</div>
       </div>
 
       <div className="dev-list-item_info">
         <div className="align-text">
-          <Link to={url} className="button">
+          <a href="/" className="button">
             Follow
-          </Link>
+          </a>
         </div>
       </div>
     </div>
